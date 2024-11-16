@@ -3,6 +3,7 @@ require("dotenv").config()
 const app = express()
 
 const categorieRouter = require("./categories/categories.route")
+const produitRouter = require("./produits/produits.route")
 
 
 //using
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ urlencoded: false }))
 //routes
 
 app.use("/categories", categorieRouter)
+app.use("/produits", produitRouter)
 
 //listen
 const port = process.env.PORT || 3000
