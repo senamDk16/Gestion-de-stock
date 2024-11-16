@@ -10,3 +10,15 @@ exports.getCategorie = (req, res)=>{
         })
 }
 
+exports.addCategorie = (req, res)=>{
+    const nomCat = req.body.nomCat
+
+    cnx.query(`INSERT INTO categories (nom_Cat) VALUES (?)`, [nomCat], (err, result) => {
+        if (err) {
+            console.log(err)
+            res.status(500).send("Error adding category")
+        } else {
+            res.json({message: 'Category added successfully'})
+        }
+    })
+}
