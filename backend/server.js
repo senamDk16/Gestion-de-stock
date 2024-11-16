@@ -1,10 +1,17 @@
 const express = require("express")
 require("dotenv").config()
 const app = express()
-const cnx = require("./data/data")
+
+const categorieRouter = require("./categories/categories.route")
+
+
 //using
 app.use(express.json())
 app.use(express.urlencoded({ urlencoded: false }))
+
+//routes
+
+app.use("/categories", categorieRouter)
 
 //listen
 const port = process.env.PORT || 3000
